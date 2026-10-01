@@ -17,7 +17,9 @@ src/
     reveal.js               Apariciones al entrar en pantalla
     navigation.js           Progreso, sección activa y vuelta al inicio
     language.js             Selector de idioma
+    motion.js               Adaptación a movimiento reducido
 resources/
+  fonts/                    Tipografía local y licencia
   images/
     jaime-blanco.png         Fotografía de perfil
     social-preview.png      Imagen al compartir en redes
@@ -67,4 +69,10 @@ Los títulos acompañan la lectura en escritorio y vuelven al flujo normal en m�
 
 ## Tema
 
-La paleta oscura está en `src/css/theme.css`, compartida entre español e inglés. Las reglas de impresión conservan un fondo claro. Las imágenes sociales también usan esta paleta.
+La paleta negra y verde lima está en `src/css/theme.css`, compartida entre español e inglés. Las reglas de impresión conservan un fondo claro. Las imágenes sociales también usan esta paleta.
+
+## Dirección visual
+
+Diseño propio inspirado en Ericode (https://www.framer.com/marketplace/templates/ericode/): negro, verde lima, títulos grandes y detalles monoespaciados. No se importa código, imágenes ni componentes de Framer. La tipografía Space Grotesk se sirve desde `resources/fonts/`, con su licencia SIL Open Font License incluida. No se consulta Google Fonts durante la visita.
+
+La fotografía usa un tratamiento monocromo mediante CSS; se conserva el archivo original. El diagrama de SmartGrid-ES es una explicación visual del modelo académico, sin representar métricas ni resultados.

@@ -62,3 +62,9 @@ Los títulos acompañan la lectura en escritorio y vuelven al flujo normal en m�
 ## Referencias visuales
 
 Se revisaron https://brittanychiang.com/ y https://leerob.com/ como referencias de jerarquía del perfil y concisión. La presentación y los efectos de este sitio se implementan con su propio HTML, CSS y JavaScript, manteniendo el contenido del portfolio.
+
+## Dirección visual
+
+Diseño propio inspirado en Ericode (https://www.framer.com/marketplace/templates/ericode/): negro, verde lima, títulos grandes y detalles monoespaciados. No se importa código, imágenes ni componentes de Framer. La tipografía Space Grotesk se sirve desde `resources/fonts/`, con su licencia SIL Open Font License incluida. No se consulta Google Fonts durante la visita.
+
+La fotografía usa un tratamiento monocromo mediante CSS; se conserva el archivo original. El diagrama de SmartGrid-ES es una explicación visual del modelo académico, sin representar métricas ni resultados.
