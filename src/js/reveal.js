@@ -1,25 +1,8 @@
-(() => {
-  'use strict';
-  const header = document.querySelector('header');
-  const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-  const destinations = navLinks.map(link => ({ link, section: document.querySelector(link.hash) }));
+export function setupReveals() {
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const running = new Set();
   const revealed = new WeakSet();
   let revealObserver;
-
-  const progress = document.createElement('div');
-  progress.className = 'reading-progress';
-  progress.setAttribute('aria-hidden', 'true');
-  document.body.append(progress);
-
-  const back = document.createElement('a');
-  back.className = 'back-to-top';
-  back.href = '#inicio';
-  back.textContent = '↑';
-  back.setAttribute('aria-label', 'Volver al inicio');
-  back.hidden = true;
-  document.body.append(back);
 
   function reveal(element, delay = 0) {
     if (revealed.has(element)) return;
@@ -48,7 +31,7 @@
   if (contact) blocks.push({ element: contact, delay: 0 });
   const delays = new WeakMap(blocks.map(({ element, delay }) => [element, delay]));
 
-  function setupReveals() {
+  function observeBlocks() {
     if (motion.matches || !('IntersectionObserver' in window)) return;
     revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -66,11 +49,11 @@
   if (scrollY < 80 && !location.hash) {
     document.querySelectorAll('.hero > div > *, .hero > aside').forEach((element, i) => reveal(element, i * 70));
   }
-  setupReveals();
+  observeBlocks();
   motion.addEventListener('change', () => {
     revealObserver?.disconnect();
     if (motion.matches) [...running].forEach(animation => animation.cancel());
-    else setupReveals();
+    else observeBlocks();
   });
 
   // Keyboard navigation never has to wait for a fade-in.
@@ -81,40 +64,4 @@
   });
   window.addEventListener('beforeprint', () => [...running].forEach(animation => animation.cancel()));
 
-  let queued = false;
-  let headerHeight = header.offsetHeight;
-  function syncHeaderHeight() {
-    headerHeight = header.offsetHeight;
-    document.documentElement.style.scrollPaddingTop = `${headerHeight + 24}px`;
-    queueUpdate();
-  }
-  function updateScroll() {
-    queued = false;
-    const max = document.documentElement.scrollHeight - innerHeight;
-    const fraction = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
-    progress.style.transform = `scaleX(${fraction})`;
-    header.classList.toggle('is-scrolled', scrollY > 16);
-    back.hidden = scrollY < 600 && document.activeElement !== back;
-    const line = headerHeight + (innerHeight - headerHeight) * .25;
-    let current;
-    destinations.forEach(item => {
-      if (item.section && item.section.getBoundingClientRect().top <= line) current = item.link;
-    });
-    // The final section can be shorter than the viewport.
-    if (max > 0 && scrollY >= max - 2) current = navLinks.at(-1);
-    navLinks.forEach(link => {
-      if (link === current) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  }
-  function queueUpdate() {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(updateScroll);
-  }
-  window.addEventListener('scroll', queueUpdate, { passive: true });
-  window.addEventListener('resize', syncHeaderHeight, { passive: true });
-  back.addEventListener('blur', queueUpdate);
-  if ('ResizeObserver' in window) new ResizeObserver(syncHeaderHeight).observe(header);
-  syncHeaderHeight();
-})();
+}

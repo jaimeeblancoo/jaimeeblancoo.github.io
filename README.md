@@ -1,15 +1,51 @@
 # Portfolio de Jaime Blanco González
 
-Web personal preparada para publicar en https://jaimeeblancoo.github.io/.
+Web personal de software, inteligencia artificial y finanzas. Repositorio privado; publicación pendiente de activar GitHub Pages.
 
-## Actualizar la web
+## Estructura
 
-Edita `index.html` para cambiar textos, fechas, competencias y enlaces. Los estilos están en el mismo archivo. GitHub Pages publica los cambios de la rama `main` desde la raíz del repositorio.
+```text
+index.html                  Contenido, navegación y metadatos
+src/
+  css/
+    styles.css              Diseño y reglas responsive e impresión
+    motion.css              Transiciones y movimiento reducido
+  js/
+    main.js                 Punto de entrada de JavaScript
+    reveal.js               Apariciones al entrar en pantalla
+    navigation.js           Progreso, sección activa y vuelta al inicio
+resources/
+  images/
+    jaime-blanco.png         Fotografía de perfil
+    social-preview.png      Imagen al compartir en redes
+  icons/
+    favicon.svg             Icono de la pestaña
+docs/
+  architecture.md           Decisiones y mantenimiento
+```
 
-`social-preview.png` es la imagen de vista previa al compartir el enlace. `favicon.svg` es el icono de la pestaña.
+## Ver la web en local
 
-Sitio estático sin dependencias externas, formularios ni analítica añadida.
+Desde la raíz del repositorio, inicia un servidor HTTP estático. Por ejemplo, si tienes Python:
 
-## Animaciones
+```sh
+python -m http.server 8765 --bind 127.0.0.1
+```
 
-`animations.js` controla las apariciones al bajar, el progreso y la navegación activa. `animations.css` define las transiciones y la navegación fija. El contenido sigue disponible sin JavaScript y se respeta la preferencia de movimiento reducido.
+Abre http://127.0.0.1:8765/. Los módulos JavaScript requieren servir la página por HTTP; abrir el archivo con doble clic permite leer el contenido, pero puede bloquear las interacciones.
+
+## Actualizar
+
+- **Textos, fechas y enlaces:** `index.html`.
+- **Colores, tipografía y distribución:** `src/css/styles.css`.
+- **Transiciones:** `src/css/motion.css` y `src/js/reveal.js`.
+- **Navegación interactiva:** `src/js/navigation.js`.
+- **Fotografía y vista previa social:** `resources/images/`.
+
+Actualiza las referencias en el HTML al cambiar nombres de recursos. Mantén los enlaces locales relativos para poder servir la web tanto desde la raíz como desde una subcarpeta.
+
+## GitHub Pages
+
+Cuando se apruebe GitHub Pro para estudiantes y se autorice la publicación, configura Pages con la rama `main` y la carpeta `/ (root)`. La dirección prevista es https://jaimeeblancoo.github.io/.
+
+No hay compilación ni dependencias que instalar. El contenido sigue disponible sin JavaScript; las animaciones respetan la preferencia de movimiento reducido. No se han añadido formularios ni analítica.
