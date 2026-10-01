@@ -11,6 +11,7 @@ src/
   css/
     styles.css              Diseño y reglas responsive e impresión
     motion.css              Transiciones y movimiento reducido
+    theme.css               Paleta oscura compartida
   js/
     main.js                 Punto de entrada de JavaScript
     reveal.js               Apariciones al entrar en pantalla
@@ -63,3 +64,7 @@ Cada versión tiene `lang`, canonical, enlaces `hreflang`, metadatos e imagen so
 Las apariciones se ejecutan una vez al entrar cada bloque en pantalla. No hay botones ni preferencias guardadas. `src/js/motion.js` adapta automáticamente los efectos: desplazamiento suave y entrada por opacidad normalmente; solo una transición breve de opacidad cuando el navegador pide reducir el movimiento. No se añaden efectos continuos ni seguimiento del cursor.
 
 Los títulos acompañan la lectura en escritorio y vuelven al flujo normal en móvil e impresión. Las tarjetas responden al cursor en equipos con ratón. Se conserva la navegación nativa, la gestión del foco y la visibilidad del contenido sin JavaScript.
+
+## Tema
+
+La paleta oscura está en `src/css/theme.css`, compartida entre español e inglés. Las reglas de impresión conservan un fondo claro. Las imágenes sociales también usan esta paleta.
