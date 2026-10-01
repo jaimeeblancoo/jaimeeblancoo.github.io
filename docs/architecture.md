@@ -2,7 +2,7 @@
 
 ## Elección
 
-El sitio tiene una página con información profesional, enlaces externos e interacciones visuales. Se utiliza HTML estático, CSS separado y módulos JavaScript nativos. El navegador carga directamente estos archivos.
+El sitio tiene una página por idioma con información profesional, enlaces externos e interacciones visuales. Se utiliza HTML estático, CSS separado y módulos JavaScript nativos. El navegador carga directamente estos archivos.
 
 Un framework y una compilación añadirían herramientas que esta página no necesita. Si se incorpora un blog con muchas páginas, contenido compartido o versiones en varios idiomas, convendrá evaluar un generador estático. Las funciones de usuario o datos privados requerirían servicios separados.
 
@@ -27,7 +27,7 @@ Un framework y una compilación añadirían herramientas que esta página no nec
 3. Carga `main.js`, que importa los módulos de apariciones y navegación.
 4. JavaScript añade los efectos y controles. Si no se ejecuta, el contenido y los enlaces siguen disponibles.
 
-`index.html` es la única fuente del contenido. No hay una copia en JSON ni un HTML generado que mantener en paralelo. Los scripts temporales usados para el primer borrador no forman parte del repositorio ni del proceso de actualización.
+`index.html` contiene la versión española y `en/index.html` la inglesa. Cada archivo es la fuente de su contenido y deben actualizarse juntos. No hay una copia en JSON ni un HTML generado que mantener en paralelo. Los scripts temporales usados para el primer borrador no forman parte del repositorio ni del proceso de actualización.
 
 ## Publicación
 
@@ -44,3 +44,11 @@ El repositorio permanece privado y Pages no se activa como parte de la reorganiz
 - Comprobar que el contenido sea visible sin JavaScript y con movimiento reducido.
 
 La imagen social y la fotografía de perfil son archivos distintos: actualizar una no modifica automáticamente la otra.
+
+## Versiones de idioma
+
+Las dos páginas se sirven directamente, sin depender de JavaScript para traducir el perfil. Esto permite compartir enlaces por idioma y mantener el contenido disponible para lectores, motores de búsqueda y vistas previas sociales. Los recursos y módulos son compartidos; las rutas inglesas usan `../` para acceder a ellos.
+
+`src/js/language.js` conserva la sección activa al cambiar de idioma. El selector tiene enlaces nativos y señala el idioma actual mediante `aria-current`. La etiqueta accesible del botón de vuelta al inicio depende del idioma del documento.
+
+Para añadir un idioma, crea su HTML, traduce también metadatos y etiquetas accesibles, ajusta los recursos relativos y añade enlaces alternativos y el selector en todas las páginas. Si crece el número de páginas o idiomas, convendrá generar las páginas desde plantillas comunes para reducir la duplicación de estructura.

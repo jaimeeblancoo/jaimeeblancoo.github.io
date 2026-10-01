@@ -5,7 +5,8 @@ Web personal de software, inteligencia artificial y finanzas. Repositorio privad
 ## Estructura
 
 ```text
-index.html                  Contenido, navegación y metadatos
+index.html                  Versión española
+en/index.html               Versión inglesa
 src/
   css/
     styles.css              Diseño y reglas responsive e impresión
@@ -14,6 +15,7 @@ src/
     main.js                 Punto de entrada de JavaScript
     reveal.js               Apariciones al entrar en pantalla
     navigation.js           Progreso, sección activa y vuelta al inicio
+    language.js             Selector de idioma
 resources/
   images/
     jaime-blanco.png         Fotografía de perfil
@@ -36,7 +38,7 @@ Abre http://127.0.0.1:8765/. Los módulos JavaScript requieren servir la página
 
 ## Actualizar
 
-- **Textos, fechas y enlaces:** `index.html`.
+- **Textos, fechas y enlaces:** `index.html` (español) y `en/index.html` (inglés). Actualiza ambas versiones al cambiar tu perfil.
 - **Colores, tipografía y distribución:** `src/css/styles.css`.
 - **Transiciones:** `src/css/motion.css` y `src/js/reveal.js`.
 - **Navegación interactiva:** `src/js/navigation.js`.
@@ -49,3 +51,9 @@ Actualiza las referencias en el HTML al cambiar nombres de recursos. Mantén los
 Cuando se apruebe GitHub Pro para estudiantes y se autorice la publicación, configura Pages con la rama `main` y la carpeta `/ (root)`. La dirección prevista es https://jaimeeblancoo.github.io/.
 
 No hay compilación ni dependencias que instalar. El contenido sigue disponible sin JavaScript; las animaciones respetan la preferencia de movimiento reducido. No se han añadido formularios ni analítica.
+
+## Idiomas
+
+Español en `/` e inglés en `/en/`. Ambas versiones contienen el perfil completo en HTML y comparten estilos, scripts y fotografía. El selector ES / EN funciona sin JavaScript; con JavaScript conserva la sección que estabas leyendo. No se fuerza un idioma según el navegador.
+
+Cada versión tiene `lang`, canonical, enlaces `hreflang`, metadatos e imagen social propios. Los nombres de instituciones y los títulos originales de cursos se conservan cuando corresponde. Los identificadores de sección coinciden entre idiomas para facilitar el cambio de página.

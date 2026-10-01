@@ -11,7 +11,7 @@ export function setupNavigation() {
   back.className = 'back-to-top';
   back.href = '#inicio';
   back.textContent = '↑';
-  back.setAttribute('aria-label', 'Volver al inicio');
+  back.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Back to top' : 'Volver al inicio');
   back.hidden = true;
   document.body.append(back);
 

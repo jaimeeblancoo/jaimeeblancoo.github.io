@@ -573,3 +573,45 @@ footer {
 .eyebrow-light {
   color: #9bb0ff;
 }
+
+/* Both languages share the same layout and assets. */
+.nav {
+  flex-wrap: wrap;
+}
+.brand {
+  flex-shrink: 0;
+}
+.language-switch {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.language-switch a {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.language-switch a[aria-current="page"] {
+  background: var(--accent);
+  color: white;
+}
+@media (max-width: 1000px) {
+  .nav {
+    flex-direction: row;
+    gap: 12px 24px;
+    padding: 18px 0;
+    align-items: center;
+  }
+  .language-switch {
+    margin-left: auto;
+  }
+  .nav nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+  }
+}
