@@ -1,5 +1,4 @@
-export function setupReveals() {
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+export function setupReveals(motion) {
   const running = new Set();
   const revealed = new WeakSet();
   let revealObserver;
@@ -7,11 +6,11 @@ export function setupReveals() {
   function reveal(element, delay = 0) {
     if (revealed.has(element)) return;
     revealed.add(element);
-    if (motion.matches || typeof element.animate !== 'function') return;
+    if (!motion.enabled || typeof element.animate !== 'function') return;
     const animation = element.animate([
       { opacity: 0, transform: 'translateY(24px)' },
       { opacity: 1, transform: 'translateY(0)' }
-    ], { duration: 620, delay, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' });
+    ], { duration: 780, delay, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' });
     running.add(animation);
     animation.onfinish = () => { running.delete(animation); animation.cancel(); };
     animation.oncancel = () => running.delete(animation);
@@ -32,7 +31,7 @@ export function setupReveals() {
   const delays = new WeakMap(blocks.map(({ element, delay }) => [element, delay]));
 
   function observeBlocks() {
-    if (motion.matches || !('IntersectionObserver' in window)) return;
+    if (!motion.enabled || !('IntersectionObserver' in window)) return;
     revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -46,14 +45,22 @@ export function setupReveals() {
   }
 
   // Intro animation only applies when the visitor starts at the top.
-  if (scrollY < 80 && !location.hash) {
+  if (motion.enabled && scrollY < 80 && !location.hash) {
     document.querySelectorAll('.hero > div > *, .hero > aside').forEach((element, i) => reveal(element, i * 70));
   }
   observeBlocks();
-  motion.addEventListener('change', () => {
+  motion.subscribe(enabled => {
     revealObserver?.disconnect();
-    if (motion.matches) [...running].forEach(animation => animation.cancel());
-    else observeBlocks();
+    if (!enabled) [...running].forEach(animation => animation.cancel());
+    else {
+      document.querySelectorAll('.hero > div > *, .hero > aside').forEach((element, i) => {
+        if (element.getBoundingClientRect().bottom > 0) {
+          revealed.delete(element);
+          reveal(element, i * 70);
+        }
+      });
+      observeBlocks();
+    }
   });
 
   // Keyboard navigation never has to wait for a fade-in.
