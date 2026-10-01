@@ -58,6 +58,8 @@ Español en `/` e inglés en `/en/`. Ambas versiones contienen el perfil complet
 
 Cada versión tiene `lang`, canonical, enlaces `hreflang`, metadatos e imagen social propios. Los nombres de instituciones y los títulos originales de cursos se conservan cuando corresponde. Los identificadores de sección coinciden entre idiomas para facilitar el cambio de página.
 
-## Preferencia de animaciones
+## Animaciones automáticas
 
-`src/js/motion.js` respeta inicialmente la preferencia de movimiento del navegador. El botón de la cabecera permite activar o pausar las animaciones explícitamente para esta web. La elección se guarda localmente, se comparte entre idiomas y no modifica los ajustes del equipo. Si el almacenamiento no está disponible, el botón sigue funcionando en la página actual.
+Las apariciones se ejecutan una vez al entrar cada bloque en pantalla. No hay botones ni preferencias guardadas. `src/js/motion.js` adapta automáticamente los efectos: desplazamiento suave y entrada por opacidad normalmente; solo una transición breve de opacidad cuando el navegador pide reducir el movimiento. No se añaden efectos continuos ni seguimiento del cursor.
+
+Los títulos acompañan la lectura en escritorio y vuelven al flujo normal en móvil e impresión. Las tarjetas responden al cursor en equipos con ratón. Se conserva la navegación nativa, la gestión del foco y la visibilidad del contenido sin JavaScript.

@@ -19,6 +19,7 @@ export function setupNavigation() {
   let headerHeight = header.offsetHeight;
   function syncHeaderHeight() {
     headerHeight = header.offsetHeight;
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
     document.documentElement.style.scrollPaddingTop = `${headerHeight + 24}px`;
     queueUpdate();
   }

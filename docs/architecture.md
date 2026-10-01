@@ -53,6 +53,12 @@ Las dos páginas se sirven directamente, sin depender de JavaScript para traduci
 
 Para añadir un idioma, crea su HTML, traduce también metadatos y etiquetas accesibles, ajusta los recursos relativos y añade enlaces alternativos y el selector en todas las páginas. Si crece el número de páginas o idiomas, convendrá generar las páginas desde plantillas comunes para reducir la duplicación de estructura.
 
-## Preferencia de animaciones
+## Animaciones automáticas
 
-`src/js/motion.js` respeta inicialmente la preferencia de movimiento del navegador. El botón de la cabecera permite activar o pausar las animaciones explícitamente para esta web. La elección se guarda localmente, se comparte entre idiomas y no modifica los ajustes del equipo. Si el almacenamiento no está disponible, el botón sigue funcionando en la página actual.
+Las apariciones se ejecutan una vez al entrar cada bloque en pantalla. No hay botones ni preferencias guardadas. `src/js/motion.js` adapta automáticamente los efectos: desplazamiento suave y entrada por opacidad normalmente; solo una transición breve de opacidad cuando el navegador pide reducir el movimiento. No se añaden efectos continuos ni seguimiento del cursor.
+
+Los títulos acompañan la lectura en escritorio y vuelven al flujo normal en móvil e impresión. Las tarjetas responden al cursor en equipos con ratón. Se conserva la navegación nativa, la gestión del foco y la visibilidad del contenido sin JavaScript.
+
+## Referencias visuales
+
+Se revisaron https://brittanychiang.com/ y https://leerob.com/ como referencias de jerarquía del perfil y concisión. La presentación y los efectos de este sitio se implementan con su propio HTML, CSS y JavaScript, manteniendo el contenido del portfolio.
