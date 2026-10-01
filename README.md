@@ -57,3 +57,7 @@ No hay compilación ni dependencias que instalar. El contenido sigue disponible 
 Español en `/` e inglés en `/en/`. Ambas versiones contienen el perfil completo en HTML y comparten estilos, scripts y fotografía. El selector ES / EN funciona sin JavaScript; con JavaScript conserva la sección que estabas leyendo. No se fuerza un idioma según el navegador.
 
 Cada versión tiene `lang`, canonical, enlaces `hreflang`, metadatos e imagen social propios. Los nombres de instituciones y los títulos originales de cursos se conservan cuando corresponde. Los identificadores de sección coinciden entre idiomas para facilitar el cambio de página.
+
+## Preferencia de animaciones
+
+`src/js/motion.js` respeta inicialmente la preferencia de movimiento del navegador. El botón de la cabecera permite activar o pausar las animaciones explícitamente para esta web. La elección se guarda localmente, se comparte entre idiomas y no modifica los ajustes del equipo. Si el almacenamiento no está disponible, el botón sigue funcionando en la página actual.

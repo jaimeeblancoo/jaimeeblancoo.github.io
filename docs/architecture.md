@@ -52,3 +52,7 @@ Las dos páginas se sirven directamente, sin depender de JavaScript para traduci
 `src/js/language.js` conserva la sección activa al cambiar de idioma. El selector tiene enlaces nativos y señala el idioma actual mediante `aria-current`. La etiqueta accesible del botón de vuelta al inicio depende del idioma del documento.
 
 Para añadir un idioma, crea su HTML, traduce también metadatos y etiquetas accesibles, ajusta los recursos relativos y añade enlaces alternativos y el selector en todas las páginas. Si crece el número de páginas o idiomas, convendrá generar las páginas desde plantillas comunes para reducir la duplicación de estructura.
+
+## Preferencia de animaciones
+
+`src/js/motion.js` respeta inicialmente la preferencia de movimiento del navegador. El botón de la cabecera permite activar o pausar las animaciones explícitamente para esta web. La elección se guarda localmente, se comparte entre idiomas y no modifica los ajustes del equipo. Si el almacenamiento no está disponible, el botón sigue funcionando en la página actual.
