@@ -1,6 +1,6 @@
 # Portfolio de Jaime Blanco González
 
-Web personal de software, inteligencia artificial y finanzas. Repositorio privado; publicación pendiente de activar GitHub Pages.
+Web personal de software, inteligencia artificial y finanzas. Repositorio público. Web publicada en https://jaimeeblancoo.github.io/ y versión inglesa en https://jaimeeblancoo.github.io/en/.
 
 ## Estructura
 
@@ -51,7 +51,7 @@ Actualiza las referencias en el HTML al cambiar nombres de recursos. Mantén los
 
 ## GitHub Pages
 
-Cuando se apruebe GitHub Pro para estudiantes y se autorice la publicación, configura Pages con la rama `main` y la carpeta `/ (root)`. La dirección prevista es https://jaimeeblancoo.github.io/.
+GitHub Pages está configurado con la rama `main` y la carpeta `/ (root)`. Los cambios enviados a esa rama se publican en https://jaimeeblancoo.github.io/. El repositorio es público y utiliza GitHub Pages sin depender de GitHub Education.
 
 No hay compilación ni dependencias que instalar. El contenido sigue disponible sin JavaScript; las animaciones respetan la preferencia de movimiento reducido. No se han añadido formularios ni analítica.
 

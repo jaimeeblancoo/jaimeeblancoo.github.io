@@ -33,7 +33,7 @@ Un framework y una compilación añadirían herramientas que esta página no nec
 
 Se conserva `index.html` en la raíz para servir el repositorio directamente con GitHub Pages. `src` contiene código ejecutable en el navegador, sin compilación. No se necesitan `dist`, `node_modules`, un archivo de paquetes ni un workflow de despliegue.
 
-El repositorio permanece privado y Pages no se activa como parte de la reorganización. La publicación requiere un plan que admita Pages en repositorios privados y la autorización para exponer el contenido del sitio.
+El repositorio es público y Pages sirve la rama `main` desde la raíz. La publicación del perfil, fotografía y correo de contacto ha sido autorizada por su propietario. No se incluyen el PDF del CV, el teléfono ni credenciales.
 
 ## Comprobación de cambios
 
